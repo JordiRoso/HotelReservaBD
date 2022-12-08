@@ -1,11 +1,11 @@
-const { Hotel} = require("../models.js");
+const { Hotel, Reserva } = require("../models.js");
 
 const HotelController = {};
 
 HotelController.findAll = async (req, res) => {
   try {
     const data = await Hotel.findAll({
-      //  include: [{ model: Cliente, as: "id_cliente_cliente" }],
+       include: [{ model: Reserva, as: "reservas" }],
     });
     res.json(data);
  } catch (error) {
@@ -15,17 +15,29 @@ HotelController.findAll = async (req, res) => {
  }
 };
 
-//     hotel.findAll().then((data) => {
-//         res.send(data);
-//     });
-// };
 
-HotelController.findByPk = (req, res) => {
-    const id = req.params.id;
-  
-  hotel.findByPk(id).then((data) => {
-    res.send(data);
-  });
+
+HotelController.findByPk = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const data = await Hotel.findByPk(id, {
+      include: [{ model: Reserva, as: "reservas" }],
+      
+    });
+
+    if (data) {
+       res.json(data);
+    } else {
+       res.status(404).send({
+          message: `Cannot find user with id=${id}`,
+       });
+    }
+ } catch (error) {
+    res.status(500).send({
+       message: `Error retreiving user retrieving with id=${id}.`,
+    });
+ }
 };
 
 
