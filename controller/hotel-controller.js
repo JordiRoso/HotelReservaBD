@@ -1,4 +1,5 @@
 const { Hotel, Reserva } = require("../models.js");
+const { Op } = require("sequelize");
 
 const HotelController = {};
 
@@ -38,6 +39,30 @@ HotelController.findByPk = async (req, res) => {
        message: `Error retreiving user retrieving with id=${id}.`,
     });
  }
+};
+
+HotelController.findByNameHotel = async (req, res) => {
+  const name = req.params.name;
+
+  try {
+    const data = await Hotel.findAll({
+      where: {nameHotel: { [Op.like]: `%${name}%`}  },
+      include: [{ model: Reserva, as: "reservas" }],
+     
+    });
+
+    if (data.length > 0) {
+      res.json(data);
+   } else {
+      res.status(404).send({
+         message: `Cannot find user with name=${name}`,
+      });
+   }
+} catch (error) {
+   res.status(500).send({
+      message: `Error retreiving user retrieving with name=${name}.`,
+   });
+}
 };
 
 
