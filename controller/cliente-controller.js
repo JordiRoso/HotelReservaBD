@@ -23,13 +23,33 @@ ClienteController.getAll = async (req, res) => {
 // cliente.findAll().then((data) => {
 //   res.send(data);
 
-ClienteController.findByPk = (req, res) => {
+ClienteController.findByPk = async (req, res) => {
     const id = req.params.id;
-  
-  cliente.findByPk(id).then((data) => {
-    res.send(data);
-  });
+
+    try {
+      const data = await Cliente.findByPk(id, {
+        
+      });
+
+      if (data) {
+         res.json(data);
+      } else {
+         res.status(404).send({
+            message: `Cannot find user with id=${id}`,
+         });
+      }
+   } catch (error) {
+      res.status(500).send({
+         message: `Error retreiving user retrieving with id=${id}.`,
+      });
+   }
 };
+
+  
+//   cliente.findByPk(id).then((data) => {
+//     res.send(data);
+//   });
+// };
 
 
 
