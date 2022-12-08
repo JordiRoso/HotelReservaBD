@@ -109,6 +109,76 @@ ClienteController.findByMail = async (req, res) => {
    });
 }
 };
+
+ClienteController.findByDni = async (req, res) => {
+  const name = req.params.name;
+
+  try {
+    const data = await Cliente.findAll({
+      where: {dni: { [Op.like]: `%${name}%`}  },
+      include: [{ model: Reserva, as:  "reservas" }],
+    });
+
+    if (data.length > 0) {
+      res.json(data);
+   } else {
+      res.status(404).send({
+         message: `Cannot find user with name=${name}`,
+      });
+   }
+} catch (error) {
+   res.status(500).send({
+      message: `Error retreiving user retrieving with name=${name}.`,
+   });
+}
+};
+ 
+ClienteController.findByDni = async (req, res) => {
+  const name = req.params.name;
+
+  try {
+    const data = await Cliente.findAll({
+      where: {dni: { [Op.like]: `%${name}%`}  },
+      include: [{ model: Reserva, as:  "reservas" }],
+    });
+
+    if (data.length > 0) {
+      res.json(data);
+   } else {
+      res.status(404).send({
+         message: `Cannot find user with name=${name}`,
+      });
+   }
+} catch (error) {
+   res.status(500).send({
+      message: `Error retreiving user retrieving with name=${name}.`,
+   });
+}
+};
+ 
+ClienteController.findByPhone = async (req, res) => {
+   const name = req.params.name;
+ 
+   try {
+     const data = await Cliente.findAll({
+       where: {phone: { [Op.like]: `%${name}%`}  },
+       include: [{ model: Reserva, as:  "reservas" }],
+     });
+ 
+     if (data.length > 0) {
+       res.json(data);
+    } else {
+       res.status(404).send({
+          message: `Cannot find user with name=${name}`,
+       });
+    }
+ } catch (error) {
+    res.status(500).send({
+       message: `Error retreiving user retrieving with name=${name}.`,
+    });
+ }
+ };
+  
  
 
  

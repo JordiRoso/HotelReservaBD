@@ -77,5 +77,29 @@ ReservaController.findByfecha = async (req, res) => {
 }
 };
 
+ReservaController.findByfechaOut = async (req, res) => {
+  const name = req.params.name;
+
+  try {
+    const data = await Reserva.findAll({
+      where: {date_out_hotel: { [Op.like]: `%${name}%`}  },
+      include: [{ model: Cliente, as: "id_cliente_cliente" },{ model: Hotel, as: "id_hotel_hotel"}],
+    });
+
+    if (data.length > 0) {
+      res.json(data);
+   } else {
+      res.status(404).send({
+         message: `Cannot find user with name=${name}`,
+      });
+   }
+} catch (error) {
+   res.status(500).send({
+      message: `Error retreiving user retrieving with name=${name}.`,
+   });
+}
+};
+
+
 
 module.exports = ReservaController;
