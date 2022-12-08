@@ -1,13 +1,13 @@
-const { Cliente } = require("../models.js");
-//const { Op } = require("sequelize");
-// const {cliente} = require("../models/index");
+const { Cliente, Reserva } = require("../models.js");
+const { Op } = require("sequelize");
 
 const ClienteController = {};
 
 ClienteController.getAll = async (req, res) => {
   try{
     const data = await Cliente.findAll({
-    // include: [{ model: Cliente, as: "id_cliente_cliente" }],
+      include: [{ model: Reserva, as:  "reservas" }],
+    
  });
  res.json(data);
 } catch (error) {
@@ -17,11 +17,6 @@ ClienteController.getAll = async (req, res) => {
 }
 };
 
-    
-   
-
-// cliente.findAll().then((data) => {
-//   res.send(data);
 
 ClienteController.findByPk = async (req, res) => {
     const id = req.params.id;
@@ -46,10 +41,77 @@ ClienteController.findByPk = async (req, res) => {
 };
 
   
-//   cliente.findByPk(id).then((data) => {
-//     res.send(data);
-//   });
-// };
+ClienteController.findByName = async (req, res) => {
+  const name = req.params.name;
+
+  try {
+    const data = await Cliente.findAll({
+      where: {name: { [Op.like]: `%${name}%`}  },
+      include: [{ model: Reserva, as:  "reservas" }],
+    });
+
+    if (data.length > 0) {
+      res.json(data);
+   } else {
+      res.status(404).send({
+         message: `Cannot find user with name=${name}`,
+      });
+   }
+} catch (error) {
+   res.status(500).send({
+      message: `Error retreiving user retrieving with name=${name}.`,
+   });
+}
+};
+
+ClienteController.findBylastName = async (req, res) => {
+  const name = req.params.name;
+
+  try {
+    const data = await Cliente.findAll({
+      where: {lastname: { [Op.like]: `%${name}%`}  },
+      include: [{ model: Reserva, as:  "reservas" }],
+    });
+
+    if (data.length > 0) {
+      res.json(data);
+   } else {
+      res.status(404).send({
+         message: `Cannot find user with name=${name}`,
+      });
+   }
+} catch (error) {
+   res.status(500).send({
+      message: `Error retreiving user retrieving with name=${name}.`,
+   });
+}
+};
+
+ClienteController.findByMail = async (req, res) => {
+  const name = req.params.name;
+
+  try {
+    const data = await Cliente.findAll({
+      where: {email: { [Op.like]: `%${name}%`}  },
+      include: [{ model: Reserva, as:  "reservas" }],
+    });
+
+    if (data.length > 0) {
+      res.json(data);
+   } else {
+      res.status(404).send({
+         message: `Cannot find user with name=${name}`,
+      });
+   }
+} catch (error) {
+   res.status(500).send({
+      message: `Error retreiving user retrieving with name=${name}.`,
+   });
+}
+};
+ 
+
+ 
 
 
 
