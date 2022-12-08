@@ -3,7 +3,7 @@ var router = express.Router();
 
 const ClienteController = require("../controller/cliente-controller");
 
-router.get("/", ClienteController.findAll);
+router.get("/", ClienteController.getAll);
 router.get("/:id", ClienteController.findByPk);
 
 

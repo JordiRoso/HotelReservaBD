@@ -8,11 +8,14 @@ const router = require("./router");
 const cors = require("cors");
 
 const corsOptions = {
-  "origin": "*",
-  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-  "preflightContinue": false,
-  "optionsSuccessStatus": 204
-}
+  origin: "*",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+};
+
+var indexRouter = require("./routes/index");
+var usersRouter = require("./routes/users");
 
 
 var app = express();
