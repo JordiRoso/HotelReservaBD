@@ -55,7 +55,7 @@ https://hotelreservabd-production.up.railway.app/{api}
  GET:
  existen las siguientes apis:
 
- Clientes:{users}
+ Clientes:{(users)}
 
  Clientes id:{users/(id)}
 
@@ -69,11 +69,13 @@ https://hotelreservabd-production.up.railway.app/{api}
 
  Clientes dni: {users/dni/(dni)}
 
- Hotel: {hotel}
+ Hotel: {(hotel)}
 
  Hotel id:{hotel/(id)}
 
- Hotel name:{hotel/(namehotel)}
+ Hotel name:{hotel/namehotel(namehotel)}
+
+ Reservas:{(reserva)}
 
  Reservas id:{reserva/(id)}
 
