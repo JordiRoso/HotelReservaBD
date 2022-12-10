@@ -37,6 +37,7 @@ ReservaController.findByPk = async (req, res) => {
 
   try {
     const data = await Reserva.findByPk(id, {
+      include: [{ model: Cliente, as: "id_cliente_cliente" },{ model: Hotel, as: "id_hotel_hotel"}],
       
     });
 
