@@ -9,7 +9,7 @@
 
 ## Conocer <a name = "about"></a>
 
-El buscador de reservas esta creado con sequelize.Y tiene una base de datos con las tablas: Clientes, Reservas y Hoteles.
+El buscador de reservas esta creado con sequelize,express.Y tiene una base de datos con las tablas: Clientes, Reservas y Hoteles.
 Pudiendo realizar busquedas  con los siguientees parametros:
 Nombre,apellidos,telf.,email,dni,id,hotel,fecha de entrada, fecha de salida.
 ![Screenshot](img/esquemaHoteldeReservas.png)
