@@ -4,18 +4,20 @@ const { Op } = require("sequelize");
 const ClienteController = {};
 
 ClienteController.getAll = async (req, res) => {
-  try{
+  
+   try{
     const data = await Cliente.findAll({
       include: [{ model: Reserva, as:  "reservas",
    include: { model: Hotel, as:"id_hotel_hotel"}, }],
     
- });
- res.json(data);
-} catch (error) {
- res.status(500).send({
-    message: "Some error occurred while retrieving users.",
- });
-}
+     });
+
+    res.json(data);
+  } catch (error) {
+     res.status(500).send({
+        message: "Some error occurred while retrieving users.",
+    });
+  }
 };
 
 
@@ -63,11 +65,11 @@ ClienteController.findByName = async (req, res) => {
          message: `Cannot find user with name=${name}`,
       });
    }
-} catch (error) {
-   res.status(500).send({
-      message: `Error retreiving user retrieving with name=${name}.`,
-   });
-}
+  } catch (error) {
+     res.status(500).send({
+        message: `Error retreiving user retrieving with name=${name}.`,
+      });
+  }
 };
 
 ClienteController.findBylastName = async (req, res) => {
@@ -87,11 +89,11 @@ ClienteController.findBylastName = async (req, res) => {
          message: `Cannot find user with name=${name}`,
       });
    }
-} catch (error) {
-   res.status(500).send({
-      message: `Error retreiving user retrieving with name=${name}.`,
-   });
-}
+  } catch (error) {
+    res.status(500).send({
+       message: `Error retreiving user retrieving with name=${name}.`,
+     });
+  }
 };
 
 ClienteController.findByMail = async (req, res) => {
@@ -111,11 +113,11 @@ ClienteController.findByMail = async (req, res) => {
          message: `Cannot find user with name=${name}`,
       });
    }
-} catch (error) {
+ } catch (error) {
    res.status(500).send({
       message: `Error retreiving user retrieving with name=${name}.`,
    });
-}
+ }
 };
 
 ClienteController.findByDni = async (req, res) => {
@@ -135,35 +137,14 @@ ClienteController.findByDni = async (req, res) => {
          message: `Cannot find user with name=${name}`,
       });
    }
-} catch (error) {
+ } catch (error) {
    res.status(500).send({
       message: `Error retreiving user retrieving with name=${name}.`,
    });
-}
+ }
 };
  
-// ClienteController.findByDni = async (req, res) => {
-//   const name = req.params.name;
 
-//   try {
-//     const data = await Cliente.findAll({
-//       where: {dni: { [Op.like]: `%${name}%`}  },
-//       include: [{ model: Reserva, as:  "reservas" }],
-//     });
-
-//     if (data.length > 0) {
-//       res.json(data);
-//    } else {
-//       res.status(404).send({
-//          message: `Cannot find user with name=${name}`,
-//       });
-//    }
-// } catch (error) {
-//    res.status(500).send({
-//       message: `Error retreiving user retrieving with name=${name}.`,
-//    });
-// }
-// };
  
 ClienteController.findByPhone = async (req, res) => {
    const name = req.params.name;
@@ -182,11 +163,11 @@ ClienteController.findByPhone = async (req, res) => {
           message: `Cannot find user with name=${name}`,
        });
     }
- } catch (error) {
+  } catch (error) {
     res.status(500).send({
        message: `Error retreiving user retrieving with name=${name}.`,
     });
- }
+  }
  };
   
  

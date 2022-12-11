@@ -18,18 +18,7 @@ ReservaController.findAll = async (req, res) => {
 };
 
 
-//     reserva.findAll().then((data) => {
-//         res.send(data);
-//     });
-// };
 
-// ReservaController.findByPk = (req, res) => {
-//     const id = req.params.id;
-  
-//   reserva.findByPk(id).then((data) => {
-//     res.send(data);
-//   });
-// };
 
 
 ReservaController.findByPk = async (req, res) => {
@@ -71,11 +60,11 @@ ReservaController.findByfecha = async (req, res) => {
          message: `Cannot find user with name=${name}`,
       });
    }
-} catch (error) {
-   res.status(500).send({
-      message: `Error retreiving user retrieving with name=${name}.`,
-   });
-}
+  } catch (error) {
+     res.status(500).send({
+        message: `Error retreiving user retrieving with name=${name}.`,
+     });
+  }
 };
 
 ReservaController.findByfechaOut = async (req, res) => {
@@ -94,11 +83,11 @@ ReservaController.findByfechaOut = async (req, res) => {
          message: `Cannot find user with name=${name}`,
       });
    }
-} catch (error) {
-   res.status(500).send({
-      message: `Error retreiving user retrieving with name=${name}.`,
-   });
-}
+  } catch (error) {
+     res.status(500).send({
+        message: `Error retreiving user retrieving with name=${name}.`,
+     });
+  }
 };
 
 

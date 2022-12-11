@@ -1,6 +1,6 @@
 # Hotel de Reservas
 
-## Table of Contents
+## Tabla de Contenidos
 
 - [Conocer](#about)
 - [Empezar](#getting_started)
@@ -32,13 +32,13 @@ npm install node
 
 ## Uso <a name = "usage"></a>
 
-Par apoder usar hay que arrancar con:
+Para poder usar hay que arrancar con:
 
 ```
 npm run dev
 ```
 Hay unos seeders por si se quiere utilizar el buscador independientemente de la carga de toda la Base de Datos.
-Par utilizar los seeders:
+Para utilizar los seeders:
 
 ```
 npx sequelize-cli db:seed:all

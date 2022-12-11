@@ -59,11 +59,11 @@ HotelController.findByNameHotel = async (req, res) => {
          message: `Cannot find user with name=${name}`,
       });
    }
-} catch (error) {
-   res.status(500).send({
-      message: `Error retreiving user retrieving with name=${name}.`,
-   });
-}
+  }  catch (error) {
+      res.status(500).send({
+        message: `Error retreiving user retrieving with name=${name}.`,
+     });
+  }
 };
 
 

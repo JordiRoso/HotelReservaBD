@@ -14,8 +14,7 @@ const corsOptions = {
   optionsSuccessStatus: 204,
 };
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+
 
 
 var app = express();
