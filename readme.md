@@ -20,7 +20,7 @@ SERVIDOR DEMO:
 
 RUTAS:
 
- HTTP Verbs | Endpoints | Action |
+ HTTP Verbs | Endpoints | Acción |
 | --- | --- | --- |
 | GET | /users/ | Lista de todos los clientes |
 | GET | /users/id| Busqueda de un cliente por su id |
