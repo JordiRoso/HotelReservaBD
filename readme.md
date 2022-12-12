@@ -1,4 +1,4 @@
-# Hotel de Reservas
+#  API Hotel de Reservas
 
 ## Tabla de Contenidos
 
@@ -14,6 +14,28 @@ Pudiendo realizar busquedas  con los siguientees parametros:
 Nombre,apellidos,telf.,email,dni,id,hotel,fecha de entrada, fecha de salida.
 ![Screenshot](img/esquemaHoteldeReservas.png)
 
+SERVIDOR DEMO:
+
+<a href="https://hotelreservabd-production.up.railway.app/" target="_blank">https://hotelreservabd-production.up.railway.app/</a>
+
+RUTAS:
+
+ HTTP Verbs | Endpoints | Action |
+| --- | --- | --- |
+| GET | /users/ | Lista de todos los clientes |
+| GET | /users/id| Busqueda de un cliente por su id |
+| GET | users/name/name | Busqueda de un cliente por su nombre |
+  GET | users/lastname/lastname | Busqueda cliente por apellido |
+| GET |users/email/email| Busqueda de cliente por su email |
+| GET |users/dni/dni| Busqueda de cliente por su dni |
+| GET | hotel | Busqueda de todos los Hoteles |
+| GET | hotel/id | Busqueda de Hotel por su id |
+| GET | hotel/namehotel/nameHotel| Busqueda de Hotel por su nombre|
+| GET |reserva | Busqueda de todas las reservas|
+| GET |reserva/id | Busqueda de las reservas por su id|
+| GET |reserva/date_in_hotel/date_in_hotel | Busqueda de reserva por su fecha de entrada|
+| GET |reserva/date_out_hotel/date_out_hotel | Busqueda de reserva por su fecha de salida|
+
 
 ##  Empezar <a name = "getting_started"></a>
 
@@ -26,62 +48,30 @@ Para utilizar el buscador de Reservas debes clonar el repositorio y seguir las i
 Una vez clonado el repositorio para que funcione correctamente y se instalen todas las dependencias requeridas hay que instalar:
 
 ```
-npm install node
+npm install 
 ```
 
 
 ## Uso <a name = "usage"></a>
 
-Para poder usar hay que arrancar con:
+En Desarrollo:
 
 ```
 npm run dev
 ```
+
+En producción:
+```
+npm start
+```
+
+
 Hay unos seeders por si se quiere utilizar el buscador independientemente de la carga de toda la Base de Datos.
 Para utilizar los seeders:
 
 ```
 npx sequelize-cli db:seed:all
 ```
-
-## Api <a name = "api"></a>
-
-El servidor es el siguiente:
-
-```
-https://hotelreservabd-production.up.railway.app/{api}
-```
-
- GET:
- existen las siguientes apis:
-
- Clientes:{(users)}
-
- Clientes id:{users/(id)}
-
- Clientes name:{users/name/(name)}
-
- Clintes lastname:{users/lastname/(lastname)}
-
- Clientes email: {users/email/(email)}
-
- Clientes phone:{users/phone/(phone)}
-
- Clientes dni: {users/dni/(dni)}
-
- Hotel: {(hotel)}
-
- Hotel id:{hotel/(id)}
-
- Hotel name:{hotel/namehotel(namehotel)}
-
- Reservas:{(reserva)}
-
- Reservas id:{reserva/(id)}
-
- Reservas date in:{reserva/date_in_hotel/(date_in_hotel)}
-
- Reservas date out:{reserva/date_out_hotel/(date_out_hotel)}
 
 
 
