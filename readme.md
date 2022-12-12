@@ -9,8 +9,8 @@
 
 ## Conocer <a name = "about"></a>
 
-El buscador de reservas esta creado con express.Y tiene una base de datos con las tablas: Clientes, Reservas y Hoteles.
-Pudiendo realizar busquedas  con los siguientees parametros:
+La API está creada con express.Y tiene una base de datos con las tablas: Clientes, Reservas y Hoteles.
+Pudiendo realizar búsquedas  con los siguientees parametros:
 Nombre,apellidos,telf.,email,dni,id,hotel,fecha de entrada, fecha de salida.
 ![Screenshot](img/esquemaHoteldeReservas.png)
 
