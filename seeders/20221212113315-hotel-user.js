@@ -32,8 +32,27 @@ module.exports = {
   
 
   async down (queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('hotel', null, {});
+    await queryInterface.bulkDelete(
+      'hotel',
+     [
+          {
+            nameHotel:'Hotel Corto Maltesse'
 
-    
-  }
+          },
+          {
+            nameHotel:'Hotel Ecrins'
+
+          },
+          {
+            nameHotel:' Hotel Action Directe'
+
+          },
+          {
+            nameHotel:'Hotel Karma'
+
+          },
+     ]
+   );
+  },
+  
 };
